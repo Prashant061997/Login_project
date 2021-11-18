@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'app1/css/bootstrap.css' %}">
+</head>
+<body>
+<div class="container" align="centre">
+
+    <h1>Show Details</h1>
+    <a href="/adduser/" class="btn btn-primary">Add Record</a><hr>
+    {% if emp %}
+    <table class="table table-hover">
+        <thead>
+        <th>id</th>
+        <th>Username</th>
+        <th>First_name</th>
+<!--        <th>passwrd</th>-->
+        <th>Last_name</th>
+        <th>Email</th>
+        <th>Date_joined</th>
+        <th>Last_login</th>
+        <th>Admin</th>
+        <th>Modify</th>
+        <th>Remove</th>
+
+        </thead>
+        {% for i in emp %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.username}}</td>
+            <td>{{i.first_name}}</td>
+<!--            <td>{{i.passwrd}}</td>-->
+            <td>{{i.last_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.date_joined}}</td>
+            <td>{{i.last_login}}</td>
+            <td>{{i.is_superuser}}</td>
+            <td><a href="/update/{{i.id}}">update</a></td>
+            <td><a href="/delete/{{i.id}}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h1>Record not found</h1>
+    {% endif %}
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>User Details</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;{{emp.as_p}}&ndash;&gt;-->
+<!--{{emp1.as_p}}-->
+<!--</body>-->
+<!--</html>-->
